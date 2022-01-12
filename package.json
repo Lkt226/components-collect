@@ -6,6 +6,9 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "nuxt3": "latest"
+    "nuxt3": "latest",
+    "nuxt-windicss": "^2",
+    "sass": "^1.47.0",
+    "sass-loader": "10.1.1"
   }
 }
