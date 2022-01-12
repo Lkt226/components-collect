@@ -49,9 +49,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
   #body{
-    @apply grid grid-flow-col-dense 
-            auto-cols-max auto-rows-min
-            gap-2 p-12;
+    @apply flex flex-wrap gap-8 p-12;
 
     .grid-area{
       @apply bg-light-600 p-6 shadow-lg relative;
