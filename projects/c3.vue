@@ -3,11 +3,24 @@
         <div class="text">
             Glassmorphism é um efeito que feito para parecer com vidro como o nome sugere.
         </div>
-        <button>
+        <button @click="click()">
             Saiba mais
         </button>
     </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+    methods:{
+        click(){
+            window.open('https://hype4.academy/articles/design/glassmorphism-in-user-interfaces', '_blank')
+        }
+    }
+})
+</script>
+
 
 <style lang="scss">
     .glassmorphism{
