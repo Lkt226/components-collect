@@ -1,10 +1,10 @@
 <template>
     <div class="cartoonized">
-        <button class="b1">
+        <button @click="goToGit()" class="b1">
             <icon name="github" type="fab"/>
             Github
         </button>
-        <button class="b1">
+        <button @click="goToLinkedin()" class="b1">
             <icon name="linkedin" type="fab"/>
             Linkedin
         </button>
