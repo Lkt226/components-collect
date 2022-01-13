@@ -15,7 +15,7 @@ export default {
         },
         size: {
             type: String,
-            default: 'lg'
+            default: 'md'
         }
     },
 }
@@ -23,7 +23,7 @@ export default {
 
 <style lang="scss" scoped>
     .icon{
-        &.lg{ @apply w-6 h-6; }
+        &.lg{ @apply w-10 h-10; }
         &.md{ @apply w-5 h-5; }
         &.sm{ @apply w-4 h-4; }
     }
