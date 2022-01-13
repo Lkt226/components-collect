@@ -6,17 +6,17 @@ export default defineNuxtConfig({
       script:[
         {
           hid: 'font-awesome-brands',
-          src: 'node_modules/@fortawesome/fontawesome-free/js/brands.js',
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/brands.min.js',
           defer: true
         },
         {
           hid: 'font-awesome-solid',
-          src: 'node_modules/@fortawesome/fontawesome-free/js/solid.js',
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/solid.min.js',
           defer: true
         },
         {
-          hid: 'font-awesome-all',
-          src: 'node_modules/@fortawesome/fontawesome-free/js/fontawesome.js',
+          hid: 'font-awesome',
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/fontawesome.min.js',
           defer: true
         }
       ]
