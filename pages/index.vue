@@ -1,7 +1,7 @@
 <template>
   <div id="body">
-      <div v-for="(value, index) in size" :key="index" :style="`--i: ${index};`">
-        <button class="c-info" @click="goToCode(index)">Ver o codigo</button>
+      <div v-for="(value, index) in size" :key="index">
+        <button class="c-info" @click="goToCode(index)">id:c{{index}} | Ver o codigo</button>
         <component :is="'c'+index" class="grid-area"/>
       </div>
   </div>
@@ -11,11 +11,6 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    computed:{
-        component_controller(){
-            return ['c0', 'c1']
-        }
-    },
     data(){
         return {
             size: false as any
@@ -26,7 +21,7 @@ export default defineComponent({
 
         while (true) {
             try {
-                const check = (await import(`../projects/c${counter}.vue`))
+                const check = (await import(`../projects/components/c${counter}.vue`))
                 counter++;  
 
             } catch (error) {
@@ -39,7 +34,7 @@ export default defineComponent({
     },
     methods:{
         goToCode(id){
-            window.open(`https://github.com/Lkt226/components/blob/master/projects/c${id}.vue`, '_blank')
+            window.open(`https://github.com/Lkt226/components/blob/master/projects/components/c${id}.vue`, '_blank')
         }
     }
 })
@@ -64,11 +59,6 @@ export default defineComponent({
         @apply text-gray-200 bg-gray-500;
       }
 
-      &::before{
-        counter-reset: i var(--i);
-        content: 'id:c'counter(i);
-        @apply pr-4;
-      }
     }
   }
 </style>

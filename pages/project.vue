@@ -4,7 +4,7 @@
         <div>
             <component :is="id" class="grid-area"/>
         </div>
-        <button class="c-info" @click="goToCode(id)" :style="`--i: ${id.replace('c', '')};`">Ver o codigo</button>
+        <button @click="goToCode(id)">id:{{id}} | Ver o codigo</button>
     </div>
     <h1 v-else>loading ...</h1>
 </template>
@@ -23,7 +23,7 @@ export default defineComponent({
             this.$router.push('/')
         },
         goToCode(id){
-            window.open(`https://github.com/Lkt226/components/blob/master/projects/${id}.vue`, '_blank')
+            window.open(`https://github.com/Lkt226/components/blob/master/projects/components/${id}.vue`, '_blank')
         }
     }
 })
@@ -39,14 +39,6 @@ export default defineComponent({
         }
         .go-back{
             @apply fixed top-4 left-4;
-        }
-
-        .c-info{
-            &::before{
-                counter-reset: i var(--i);
-                content: 'id:c'counter(i);
-                @apply pr-4;
-            }
         }
 
         button{
