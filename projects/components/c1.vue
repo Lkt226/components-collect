@@ -1,5 +1,5 @@
 <template>
-    <div class="neumorphism">
+    <div class="neumorphism" style="background-color: rgba(253, 230, 138)">
         <div> <h3>Avançar</h3> </div>
         <div> <h3>Voltar</h3> </div>
         <div> <h3>Saiba mais</h3> </div>
@@ -8,8 +8,6 @@
 
 <style lang="scss" scoped>
     .neumorphism{
-        background-color: rgba(253, 230, 138) !important;
-        
         @apply gap-8 grid;
 
         div{

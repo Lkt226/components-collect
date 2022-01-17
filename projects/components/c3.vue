@@ -1,5 +1,5 @@
 <template>
-    <div class="glassmorphism">
+    <div class="glassmorphism" style="background-color: rgba(90, 25, 188)">
         <div class="text">
             Glassmorphism é um efeito que feito para parecer com vidro como o nome sugere.
         </div>
@@ -24,7 +24,7 @@ export default defineComponent({
 
 <style lang="scss">
     .glassmorphism{
-        @apply flex bg-contain;
+        @apply flex bg-contain bg-no-repeat;
         background-image: url(https://images.unsplash.com/photo-1641579281152-e5d633aa3775?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80) !important;
 
         .text{

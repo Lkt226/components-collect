@@ -29,7 +29,7 @@ export default defineComponent({
 
         button{
             @apply bg-gray-100 text-gray-700 font-bold
-                    py-4 px-6 w-full mb-4 relative
+                    py-4 px-6 w-full relative
                     flex items-center justify-center
                     border-1 border-blue-300;
 

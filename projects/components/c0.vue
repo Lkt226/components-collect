@@ -1,5 +1,5 @@
 <template>
-    <div class="claymorphism">
+    <div class="claymorphism" style="background-color: rgb(191, 219, 254)">
         <div class="clay">
             <p class="text">Este efeito se chama claymorphism, é uma forma meio cartunizada de criar volume, com bordas arredondas em uma simulação de 3D.</p>
             <button class="clay buttom" @click="click()"><h3>Saiba mais</h3></button>
@@ -19,7 +19,6 @@ export default {
 
 <style lang="scss" scoped>
     .claymorphism{
-        background-color: rgb(191, 219, 254) !important;
         @apply grid gap-2 max-w-75;
 
         .clay{
