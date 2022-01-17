@@ -44,8 +44,14 @@ export default defineComponent({
       @apply grid grid-cols-3 grid-flow-row-dense
               gap-3 p-3 w-full;
 
-      grid-auto-columns: 10vw;
-      grid-auto-rows: 10vw;
+      grid-auto-columns: 5vw;
+      grid-auto-rows: 5vw;
+    }
+
+    @media (max-width: 900px) {
+      main{
+        @apply flex flex-wrap justify-center;
+      }
     }
   }
 </style>

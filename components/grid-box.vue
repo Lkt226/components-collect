@@ -42,10 +42,10 @@ export default defineComponent({
             const component = this.$refs['c'+this.index] as any;
             if (component.querySelector('.grid-area')) {
                 const size = {
-                    width: Math.round(component.clientWidth/50),
+                    width: Math.round(component.clientWidth/100),
                     height: Math.round(component.clientHeight/50),
                 
-                    width_filho: Math.round(component.querySelector('.grid-area').clientWidth/50),
+                    width_filho: Math.round(component.querySelector('.grid-area').clientWidth/100),
                     height_filho: Math.round(component.querySelector('.grid-area').clientHeight/50)
                 }
                 
@@ -53,18 +53,19 @@ export default defineComponent({
                     width: size.width_filho - size.width,
                     height: size.height_filho - size.height
                 }
-                
-                if(pro_size.width - pro_size.height > 4){
-                    const extra = (pro_size.width - pro_size.height) - 3
-                    this.size = `--col: ${pro_size.width}; --row: ${pro_size.height+extra};`
+
+                let col = pro_size.width+1, row = pro_size.height+1;
+
+                if(pro_size.width > 0){
+                    col;
                 }
-                else if (pro_size.height - pro_size.width > 4){
-                    const extra = (pro_size.height - pro_size.width) - 3
-                    this.size = `--col: ${pro_size.width+extra}; --row: ${pro_size.height};`
+
+                if(pro_size.height > 2){
+                    row +=1;
                 }
-                else{
-                    this.size = `--col: ${pro_size.width+1}; --row: ${pro_size.height+1};`
-                }
+
+                this.size = `--col: ${col}; --row: ${row};`
+                console.log('c'+this.index,pro_size)
             }
             else{
                 setTimeout(() => { this.getSize(); }, 100);

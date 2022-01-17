@@ -19,7 +19,7 @@ export default {
 
 <style lang="scss" scoped>
     .claymorphism{
-        @apply grid gap-2 max-w-75;
+        @apply grid gap-2 min-w-70 max-w-75;
 
         .clay{
             @apply bg-gray-200
