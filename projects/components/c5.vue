@@ -42,7 +42,7 @@ export default defineComponent({
                     w-full p-2 bg-gray-200 rounded-md;
 
             .box{
-                @apply p-2 mx-2;
+                @apply p-2 mx-2 cursor-pointer;
 
                 &:hover{
                     @apply bg-gray-100 rounded-md shadow-md;

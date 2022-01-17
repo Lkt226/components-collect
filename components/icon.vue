@@ -1,5 +1,5 @@
 <template>
-    <i :class="`icon ${size} ${type} fa-${name}`"></i>
+    <div :class="`icon ${size}`"><i :class="`${type} fa-${name}`"></i></div>
 </template>
 
 <script>
@@ -24,7 +24,11 @@ export default {
 <style lang="scss" scoped>
     .icon{
         &.lg{ @apply w-10 h-10; }
-        &.md{ @apply w-5 h-5; }
-        &.sm{ @apply w-4 h-4; }
+        &.md{ @apply w-6.5 h-6.5; }
+        &.sm{ @apply w-5 h-5; }
+
+        >*{
+            @apply w-full h-full;
+        }
     }
 </style>

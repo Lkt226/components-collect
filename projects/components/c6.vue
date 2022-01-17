@@ -1,12 +1,8 @@
 <template>
-    <div class="cartoonized">
+    <div class="gloss-button">
         <button @click="goToGit()" class="b1">
             <icon name="github" type="fab" size="sm"/>
-            Github
-        </button>
-        <button @click="goToLinkedin()" class="b1">
-            <icon name="linkedin" type="fab" size="sm"/>
-            Linkedin
+            Passe o mouse
         </button>
     </div>
 </template>
@@ -29,22 +25,24 @@ export default defineComponent({
 
 
 <style lang="scss" scoped>
-    .cartoonized{
+    .gloss-button{
 
         button{
             @apply bg-gray-100 text-gray-700 font-bold
-                    py-4 px-6 w-full mb-4
+                    py-4 px-6 w-full mb-4 relative
                     flex items-center justify-center
-                    border-3 rounded-lg border-gray-500;
-            box-shadow: 0px 5px 0px rgb(107, 114, 128);
+                    border-1 border-blue-300;
 
             .icon{
                 @apply mr-2;
             }
 
             &:hover{
-                @apply bg-gray-200;
-                box-shadow: 0px 2px 0px rgb(107, 114, 128);
+                @apply bg-blue-300 text-gray-200 border-transparent;
+                box-shadow: 0px 0px 5px rgba(147, 197, 253),
+                            0px 0px 15px rgba(147, 197, 253),
+                            0px 0px 25px rgba(147, 197, 253),
+                            0px 0px 50px rgba(147, 197, 253);
             }
         }
 

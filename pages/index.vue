@@ -1,9 +1,13 @@
 <template>
   <div id="body">
-      <div v-for="(value, index) in size" :key="index">
-        <button class="c-info" @click="goToCode(index)">id:c{{index}} | Ver o codigo</button>
-        <component :is="'c'+index" class="grid-area"/>
-      </div>
+    <Aside/>
+    <main>
+        <div class="grid-box" v-for="(value, index) in size" :key="index">
+          <button class="up-box c-info" @click="goToCode(index)">Ver o codigo</button>
+          <component :is="'c'+index" class="grid-area"/>
+          <div class="up-box id"> c{{index}} </div>
+        </div>
+    </main>
   </div>
 </template>
 
@@ -44,21 +48,50 @@ export default defineComponent({
 
 <style lang="scss" scoped>
   #body{
-    @apply flex flex-wrap gap-8 p-12;
+    @apply flex bg-light-700;
+    main{
+      @apply flex flex-wrap gap-4 p-4;
 
-    .grid-area{
-      @apply bg-light-600 p-6 shadow-lg relative;
-    }
+      .grid-box{
+        @apply relative overflow-hidden h-min
+                shadow-lg rounded-lg;
 
-    .c-info{
-      @apply relative bg-gray-200
-              p-3 mb-2 rounded-sm
-              font-bold font-mono text-center text-gray-500; 
+        &:hover {
+          .c-info{
+            @apply opacity-100 left-0;
+          }
+          .id{
+            @apply opacity-100 right-0;
+          }
+        }
 
-      &:hover{
-        @apply text-gray-200 bg-gray-500;
+        *{
+          transition: all .3s ease;
+        }
+      }
+      .grid-area{
+        @apply bg-light-600 p-6 relative;
       }
 
+      .up-box{
+         @apply bg-gray-200
+                shadow-md
+                font-bold font-mono text-center text-gray-500
+                absolute z-50
+                opacity-0;
+
+          &.id{
+            @apply -top-0 -right-100 select-none py-1 px-2 mb-2;
+          }
+
+          &.c-info{
+            @apply  -top-8 -left-100 p-3 mb-2; 
+
+            &:hover{
+              @apply text-gray-200 bg-gray-500 top-0;
+            }
+          }
+      }
     }
   }
 </style>
