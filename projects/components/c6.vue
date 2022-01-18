@@ -1,6 +1,6 @@
 <template>
     <div class="gloss-button">
-        <button @click="goToGit()" class="b1">
+        <button class="b1">
             <icon name="github" type="fab" size="sm"/>
             Passe o mouse
         </button>
@@ -11,15 +11,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    methods: {
-        goToGit(){
-            window.open('https://github.com/Lkt226', '_blank')
-        },
-        goToLinkedin(){
-            window.open('https://www.linkedin.com/in/victorhdsp/', '_blank')
-        }
-
-    }
+    
 })
 </script>
 

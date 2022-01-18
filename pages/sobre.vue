@@ -1,38 +1,14 @@
 <template>
     <div id="body">
-        <Aside/>
+        <MyAside/>
         <main>
             <section id="curriculum">
                 <h1 id="title">{{title}}</h1>
 
-                <div id="hard-skills" class="curriculum-tab">
-                    <h3>Hard Skills</h3>
-                    <h4 v-for="(item, index) in hard_skills" :key="index">{{item.title}}</h4>
-                </div>
-
-                <div id="soft-skills" class="curriculum-tab">
-                    <h3>Soft Skills</h3>
-                    <h4 v-for="(item, index) in soft_skills" :key="index">{{item.title}}</h4>
-                </div>
-
-                <div id="programming" class="curriculum-tab">
-                    <h3>Programação</h3>
-                    <span v-for="(item, index) in programming" :key="index">
-                        <h4>{{item.title}}</h4>
-                        <div>
-                            <star-lvl :value="item.lvl"/>
-                        </div>
-                    </span>
-                </div>
-
-                <div id="experiences" class="curriculum-tab">
-                    <h3>Experiências profissionais</h3>
-                    <div v-for="(item, index) in experiences" :key="index" class="experience">
-                        <h4>{{item.title}} - <u>{{item.start}} até {{item.end}}</u> </h4>
-                        <p>{{item.description}}</p>
-                    </div>
-                </div>
-
+                <box-info id="hard-skills" title="Hard Skills" :items="hard_skills"/>
+                <box-info id="soft-skills" title="Soft Skills" :items="soft_skills"/>
+                <box-info id="programming" title="Programação" :items="programming"/>
+                <box-info id="experiences" title="Experiências profissionais" :items="experiences"/>
             </section>
 
             <section id="personal" class="box">
@@ -164,23 +140,6 @@ export default defineComponent({
                 #title{
                     @apply text-2xl font-bold text-center;
                 }
-
-                #experiences{
-                    @apply flex flex-col gap-6 pr-1vw;
-
-                    .experience h4{
-                        @apply mb-2;
-                    }
-                }
-
-                h3{
-                    @apply w-full border-b border-t border-light-800;
-                }
-                span{
-                    @apply flex justify-between;
-                }
-
-                >*{ @apply mx-2; }
             }
 
             #personal{
@@ -216,10 +175,6 @@ export default defineComponent({
                     -5px -5px 15px 0px rgba(255, 255, 255, 1);
             }
         }
-
-        h1,h2,h3, h4{ @apply font-bold; }
-        h2{ @apply text-lg; }
-        p{ @apply text-base; }
     }
 
     @media (max-width: 900px){

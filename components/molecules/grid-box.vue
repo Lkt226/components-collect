@@ -126,4 +126,10 @@ export default defineComponent({
             }
           }
       }
+
+    @media (max-width: 900px){
+        .up-box.c-info{
+            @apply top-0;
+        }
+    }
 </style>

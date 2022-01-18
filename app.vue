@@ -19,4 +19,15 @@
     font-family: 'Kanit', sans-serif;
     font-weight: bold;
   }
+  h4{
+    font-weight: bold;
+  }
+
+  h2{
+    font-size: 1.125rem;
+  }
+
+  p{
+    font-size: 1rem;
+  }
 </style>

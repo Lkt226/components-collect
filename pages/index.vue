@@ -1,6 +1,6 @@
 <template>
   <div id="body">
-    <Aside/>
+    <MyAside/>
     <main>
         <grid-box v-for="(value, index) in size" :key="index" :index="index"/>
     </main>

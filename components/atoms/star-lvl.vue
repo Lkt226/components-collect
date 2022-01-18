@@ -1,5 +1,5 @@
 <template>
-    <span>
+    <span class="star-lvl">
         <icon name="star" size="sm" v-for="i in value" :key="i"/>
         <icon name="star" type="far" size="sm" v-for="i in extra" :key="i"/>
     </span>
@@ -22,3 +22,12 @@ export default defineComponent({
     },
 })
 </script>
+
+<style lang="scss" scoped>
+    .star-lvl{
+        @apply flex;
+    }
+</style>
+
+
+

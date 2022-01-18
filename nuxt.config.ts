@@ -32,6 +32,12 @@ export default defineNuxtConfig({
     ],
     components: {
         dirs: [
+          //Components
+          '~/components/atoms',
+          '~/components/molecules',
+          '~/components/organisms',
+
+          //Projects
           '~/projects/components',
           '~/projects/pages',
         ]

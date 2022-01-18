@@ -1,16 +1,10 @@
 <template>
     <div id="body">
-        <Aside/>
+        <MyAside/>
         <main>
-            <section class="list-side">
-                <ul>
-                    <li v-for="(value, index) in size" :key="index" 
-                        class="list-item" @click="setPage(index)">p{{index}}: {{value}}</li>
-                </ul>
-            </section>
-            <section class="page-side">
-                <component :is="'p'+current" class="grid-area"/>
-            </section>
+            <box-info title="Exp" :items="[items[0]]"/>
+            <box-info title="Prog" :items="[items[1]]"/>
+            <box-info title="Skill" :items="[items[2]]"/>
         </main>
     </div>
 </template>
@@ -22,7 +16,12 @@ export default defineComponent({
     data(){
         return {
             current: -1 as any,
-            size: false as any
+            size: false as any,
+            items: [
+                {title: 'Title1', description: 'Text', start: '12/2020', end: '12/2022'},
+                {title: 'Title2', lvl: 2},
+                {title: 'Title3'},
+            ]
         }
     },
     methods:{
@@ -52,21 +51,9 @@ export default defineComponent({
 
 <style lang="scss" scoped>
     #body{
-        @apply flex;
+        @apply flex bg-light-600;
         main{
-            @apply pl-1 w-full gap-2 flex;
-
-            .list-side{
-                @apply p-2;
-                .list-item{
-                    @apply bg-gray-200 p-3 mb-2 w-60
-                            rounded-sm
-                            cursor-pointer;
-                }
-            }
-            .page-side{
-                @apply w-full flex justify-center;
-            }
+            @apply pl-1 w-full gap-2 flex items-center justify-center;
         }
     }
 </style>
