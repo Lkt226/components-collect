@@ -3,6 +3,7 @@
         <button class="up-box c-info" @click="goToCode(index)">Ver o codigo</button>
         <component :is="'c'+index" class="grid-area"/>
         <div class="up-box id"> c{{index}} </div>
+        {{getColor()}} {{getSize()}}
     </div>
 </template>
 
@@ -28,54 +29,57 @@ export default defineComponent({
         },
         getColor(){
             const component = this.$refs['c'+this.index] as any;
-            if (component.querySelector('.grid-area')?.style.backgroundColor) {
-               this.bg_color = `background-color: ${component.querySelector('.grid-area').style.backgroundColor};`
-            }
-            else if (typeof component.querySelector('.grid-area')?.style.backgroundColor === 'undefined'){
+            if (typeof component !== 'undefined') {
+                if (component.querySelector('.grid-area')?.style.backgroundColor) {
+                    this.bg_color = `background-color: ${component.querySelector('.grid-area').style.backgroundColor};`
+                }
+                else if (typeof component.querySelector('.grid-area')?.style.backgroundColor === 'undefined'){
+                    setTimeout(() => { this.getColor(); }, 100);
+                }
+                else {
+                    this.bg_color = ''
+                }
+            }else{
                 setTimeout(() => { this.getColor(); }, 100);
-            }
-            else {
-                this.bg_color = ''
             }
         },
         getSize(){
             const component = this.$refs['c'+this.index] as any;
-            if (component.querySelector('.grid-area')) {
-                const size = {
-                    width: Math.round(component.clientWidth/100),
-                    height: Math.round(component.clientHeight/50),
-                
-                    width_filho: Math.round(component.querySelector('.grid-area').clientWidth/100),
-                    height_filho: Math.round(component.querySelector('.grid-area').clientHeight/50)
-                }
-                
-                const pro_size = {
-                    width: size.width_filho - size.width,
-                    height: size.height_filho - size.height
-                }
+            if (typeof component !== 'undefined') {
+                if (component.querySelector('.grid-area')) {
+                    const size = {
+                        width: Math.round(component.clientWidth/100),
+                        height: Math.round(component.clientHeight/50),
+                    
+                        width_filho: Math.round(component.querySelector('.grid-area').clientWidth/100),
+                        height_filho: Math.round(component.querySelector('.grid-area').clientHeight/50)
+                    }
+                    
+                    const pro_size = {
+                        width: size.width_filho - size.width,
+                        height: size.height_filho - size.height
+                    }
 
-                let col = pro_size.width+1, row = pro_size.height+1;
+                    let col = pro_size.width+1, row = pro_size.height+1;
 
-                if(pro_size.width > 0){
-                    col;
+                    if(pro_size.width > 0){
+                        col;
+                    }
+
+                    if(pro_size.height > 2){
+                        row +=1;
+                    }
+
+                    this.size = `--col: ${col}; --row: ${row};`
                 }
-
-                if(pro_size.height > 2){
-                    row +=1;
+                else{
+                    setTimeout(() => { this.getSize(); }, 100);
                 }
-
-                this.size = `--col: ${col}; --row: ${row};`
-                console.log('c'+this.index,pro_size)
-            }
-            else{
-                setTimeout(() => { this.getSize(); }, 100);
+            }else{
+                setTimeout(() => { this.getColor(); }, 100);
             }
         }
     },
-    mounted(){
-        this.getColor();
-        this.getSize();
-    }
 })
 </script>
 
