@@ -19,14 +19,16 @@
                     <h3>Programação</h3>
                     <span v-for="(item, index) in programming" :key="index">
                         <h4>{{item.title}}</h4>
-                        <h4>{{item.lvl}}</h4>
+                        <div>
+                            <star-lvl :value="item.lvl"/>
+                        </div>
                     </span>
                 </div>
 
                 <div id="experiences" class="curriculum-tab">
                     <h3>Experiências profissionais</h3>
                     <div v-for="(item, index) in experiences" :key="index" class="experience">
-                        <h4>{{item.title}} - {{item.start}} até {{item.end}}</h4>
+                        <h4>{{item.title}} - <u>{{item.start}} até {{item.end}}</u> </h4>
                         <p>{{item.description}}</p>
                     </div>
                 </div>
@@ -151,7 +153,7 @@ export default defineComponent({
 
 
             #curriculum{
-                @apply grid grid-cols-2 gap-y-3 gap-x-4vw;
+                @apply grid grid-cols-2 gap-4vw;
                 grid-template-areas: 'title title'
                                     'prog experiences'
                                     'soft experiences'
@@ -165,6 +167,10 @@ export default defineComponent({
 
                 #experiences{
                     @apply flex flex-col gap-6 pr-1vw;
+
+                    .experience h4{
+                        @apply mb-2;
+                    }
                 }
 
                 h3{
