@@ -91,7 +91,7 @@ export default defineComponent({
             @apply opacity-100 left-0;
           }
           .id{
-            @apply opacity-100 right-0;
+            @apply opacity-100 right-0 rounded-lg;
           }
         }
 

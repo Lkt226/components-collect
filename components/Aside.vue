@@ -3,7 +3,7 @@
         <ul id="aside">
             <aside-item icon="home" @click="toggle(1)" :active="checkActive(1)" :paths="[home]"/>
             <aside-item icon="tablet-alt" @click="toggle(2)" :active="checkActive(2)" :paths="[pages]" v-if="false"/>
-            <aside-item icon="user" @click="toggle(3)" :active="checkActive(3)" :paths="[about]" v-if="false"/>
+            <aside-item icon="user" @click="toggle(3)" :active="checkActive(3)" :paths="[about]"/>
         </ul>
     </aside>
 </template>
@@ -25,7 +25,7 @@ export default defineComponent({
             },
             about: {
                 title: 'Sobre',
-                link: '/about'
+                link: '/sobre'
             }
         }
     },

@@ -54,4 +54,10 @@ export default defineComponent({
       }
     }
   }
+
+  #body{
+    main{
+      @apply relative h-100vh overflow-y-scroll;
+    }
+  }
 </style>

@@ -1,5 +1,10 @@
 <template>
-  <div>
-    <NuxtPage />
-  </div>
+  <NuxtPage />
 </template>
+
+
+<style lang="scss">
+  html, body, #__nuxt{
+      overflow: hidden;
+  }
+</style>
