@@ -25,7 +25,7 @@ export default defineComponent({
     },
     methods:{
         goToCode(id){
-            window.open(`https://github.com/Lkt226/components/blob/master/projects/components/c${id}.vue`, '_blank')
+            window.open(`https://github.com/Lkt226/components-collect/tree/main/projects/components/c${id}.vue`, '_blank')
         },
         getColor(){
             const component = this.$refs['c'+this.index] as any;

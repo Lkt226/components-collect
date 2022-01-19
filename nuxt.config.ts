@@ -25,6 +25,9 @@ export default defineNuxtConfig({
           src: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/fontawesome.min.js',
           defer: true
         }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/logo.svg' },
       ]
     },
     buildModules: [
