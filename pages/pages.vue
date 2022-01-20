@@ -2,9 +2,11 @@
     <div id="body">
         <MyAside/>
         <main>
-            <box-info title="Exp" :items="[items[0]]"/>
-            <box-info title="Prog" :items="[items[1]]"/>
-            <box-info title="Skill" :items="[items[2]]"/>
+            <ul id="menu-pages">
+                <item-pages v-for="(item, index) in size" :key="index" 
+                    :index="index" :item="item" @prop ="(e)=> getInput(e)"/>
+            </ul>
+            <component :is="'p'+current" class="pages"/>
         </main>
     </div>
 </template>
@@ -13,37 +15,31 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    data(){
-        return {
-            current: -1 as any,
-            size: false as any,
-            items: [
-                {title: 'Title1', description: 'Text', start: '12/2020', end: '12/2022'},
-                {title: 'Title2', lvl: 2},
-                {title: 'Title3'},
-            ]
-        }
-    },
-    methods:{
-        setPage(id){
-            this.current = id;
-        }
-    },
-    async beforeCreate(){
-        let counter = [];
+    async setup(){
+        let size = [];
+        let current = 0
 
         while (true) {
             try {
-                const check = (await import(`../projects/pages/p${counter.length}.vue`))
-                counter.push(check.default.name);  
+                const check = (await import(`../projects/pages/p${size.length}.vue`)).default
+                size.push(check);
+                console.log(check)
 
             } catch (error) {
-                console.log('acabou em '+counter.length)
+                console.log('acabou em '+size.length)
                 break;
             }
         }
 
-        this.size = counter;
+        return {
+            size,
+            current
+        }
+    },
+    methods: {
+        getInput(e){
+            console.log(e);
+        }
     },
 })
 </script>
@@ -51,9 +47,25 @@ export default defineComponent({
 
 <style lang="scss" scoped>
     #body{
-        @apply flex bg-light-600;
+        @apply flex bg-light-600 h-100vh overflow-y-auto;
         main{
-            @apply pl-1 w-full gap-2 flex items-center justify-center;
+            @apply pl-1 w-full gap-2 grid grid-cols-3;
+
+            .pages{
+                @apply col-span-2;
+            }
         }
+    }
+
+    @media (max-width: 900px){
+         #body main{
+             @apply grid-cols-1;
+         }
+    }
+
+    @media (max-width: 670px){
+         #body main{
+             @apply mt-20;
+         }
     }
 </style>

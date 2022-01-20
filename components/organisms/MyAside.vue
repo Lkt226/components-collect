@@ -4,8 +4,9 @@
         <icon name="ellipsis-h" id="menu-button" @click="toggleMenu()"/>      
         <ul id="aside-ul">
             <aside-item icon="home" @click="toggle(1)" :active="checkActive(1)" :paths="[home]"/>
-            <aside-item icon="tablet-alt" @click="toggle(2)" :active="checkActive(2)" :paths="[pages]"/>
-            <aside-item icon="user" @click="toggle(3)" :active="checkActive(3)" :paths="[about]"/>
+            <aside-item icon="tablet-alt" @click="toggle(2)" :active="checkActive(2)" :paths="[components]"/>
+            <aside-item icon="file" @click="toggle(3)" :active="checkActive(3)" :paths="[pages]"/>
+            <aside-item icon="user" @click="toggle(4)" :active="checkActive(4)" :paths="[about]"/>
         </ul>  
         </ClientOnly>
     </bg-box>
@@ -22,9 +23,13 @@ export default defineComponent({
                 title: 'Home',
                 link: '/'
             },
-            pages: {
+            components: {
                 title: 'Componentes',
                 link: '/componentes'
+            },
+            pages: {
+                title: 'Sobre',
+                link: '/sobre'
             },
             about: {
                 title: 'Sobre',

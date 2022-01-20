@@ -2,7 +2,7 @@
     <bg-box type="section" id="personal">
         <div id="information">
             <img :src="personal.img" alt="Victor Hugo Desenvolvedor FrontEnd">
-            <h2>{{personal.name}}</h2>
+            <h2><nobr>{{personal.name}}</nobr></h2>
             <h3>{{personal.locale}}</h3>
         </div>
         <div id="social-medias">
@@ -45,8 +45,9 @@ export default defineComponent({
         #social-medias{
             @apply flex flex-col gap-4;
 
-            >*{ @apply rounded-full; }
+            >*{ @apply rounded-full text-gray-600;}
         }
+        
     }
 
     @media (max-width: 900px){

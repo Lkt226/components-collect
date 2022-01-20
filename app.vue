@@ -15,7 +15,7 @@
     font-weight: normal;
   }
 
-  h1,h2,h3{
+  h1,h2,h3,h1 *,h2 *,h3 *{
     font-family: 'Kanit', sans-serif;
     font-weight: bold;
   }
@@ -27,7 +27,7 @@
     font-size: 4.5rem;
   }
   
-  h2{
+  h2, h2 *{
     font-size: 1.125rem;
   }
 

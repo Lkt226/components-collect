@@ -1,5 +1,5 @@
 <template>
-    <div :class="`icon ${size}`"><i :class="`${type} fa-${name}`"></i></div>
+    <div :class="`icon ${size} ${clickable()}`"><i :class="`${type} fa-${name}`"></i></div>
 </template>
 
 <script>
@@ -16,8 +16,17 @@ export default {
         size: {
             type: String,
             default: 'md'
+        },
+        pointer: {
+            type: Boolean,
+            default: true
         }
     },
+    methods:{
+        clickable(){
+            return this.pointer ? 'clickable' : ''
+        }
+    }
 }
 </script>
 
@@ -30,6 +39,10 @@ export default {
 
         >*{
             @apply w-full h-full;
+        }
+
+        &.clickable{
+            cursor: pointer;
         }
     }
 </style>
