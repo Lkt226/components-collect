@@ -58,10 +58,4 @@ export default defineComponent({
             }
         }
     }
-
-    @media (max-width: 670px){
-        #personal{
-            @apply  w-full;
-        }
-    }
 </style>
