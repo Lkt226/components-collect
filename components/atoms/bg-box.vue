@@ -21,7 +21,7 @@ export default defineComponent({
 <style>
     .bg-box{
         @apply bg-gray-200 rounded-lg
-                p-4;
+                p-4 m-2;
         box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.15),
                     -5px -5px 15px 0px rgba(255, 255, 255, 1),
                     -5px -5px 15px 0px rgba(255, 255, 255, 1),

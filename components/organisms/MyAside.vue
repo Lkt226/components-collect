@@ -1,11 +1,13 @@
 <template>
     <bg-box type="aside" id="aside" :class="menu">
+        <ClientOnly>   
         <icon name="ellipsis-h" id="menu-button" @click="toggleMenu()"/>      
         <ul id="aside-ul">
             <aside-item icon="home" @click="toggle(1)" :active="checkActive(1)" :paths="[home]"/>
-            <aside-item icon="tablet-alt" @click="toggle(2)" :active="checkActive(2)" :paths="[pages]" v-if="false"/>
+            <aside-item icon="tablet-alt" @click="toggle(2)" :active="checkActive(2)" :paths="[pages]"/>
             <aside-item icon="user" @click="toggle(3)" :active="checkActive(3)" :paths="[about]"/>
         </ul>  
+        </ClientOnly>
     </bg-box>
 </template>
 
@@ -21,8 +23,8 @@ export default defineComponent({
                 link: '/'
             },
             pages: {
-                title: 'Paginas',
-                link: '/pages'
+                title: 'Componentes',
+                link: '/componentes'
             },
             about: {
                 title: 'Sobre',
@@ -48,7 +50,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
     #aside{
-        @apply z-999 sticky top-2 p-2 m-2 text-gray-600
+        @apply z-999 sticky top-2 p-2 text-gray-600
                 flex flex-col items-center;
         height: calc(100vh - 1rem);
 
@@ -79,7 +81,7 @@ export default defineComponent({
             @apply rounded-full;
 
             #aside-ul{
-                @apply relative -left-15 h-0
+                @apply relative -top-10 opacity-0 h-0
                         p-0;
             }
             #menu-button{
@@ -90,7 +92,7 @@ export default defineComponent({
             @apply rounded-full;
 
             #aside-ul{
-                @apply relative -left-0 h-25;
+                @apply relative top-0 opacity-100 h-33;
             }
             #menu-button{
                 @apply w-full z-999;

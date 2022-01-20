@@ -1,7 +1,7 @@
 <template>
     <span class="star-lvl">
-        <icon name="star" size="sm" v-for="i in value" :key="i"/>
-        <icon name="star" type="far" size="sm" v-for="i in extra" :key="i"/>
+        <icon name="star" size="sm" v-for="(i, index) in value" :key="'fas'+index"/>
+        <icon name="star" type="far" size="sm" v-for="(i, index) in extra" :key="'far'+index"/>
     </span>
 </template>
 

@@ -23,6 +23,10 @@
     font-weight: bold;
   }
 
+  h1{
+    font-size: 4.5rem;
+  }
+  
   h2{
     font-size: 1.125rem;
   }

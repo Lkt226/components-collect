@@ -9,7 +9,6 @@
     <li class="aside-item" v-else>
         <icon :name="icon" @click="goTo(paths[0].link)"/>
     </li>
-
 </template>
 
 <script lang="ts">

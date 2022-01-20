@@ -1,5 +1,5 @@
 <template>
-    <div :id="'c'+index" :ref="'c'+index" :class="`grid-box`" :style="`${bg_color} ${size}`">
+    <div :id="'c'+index" :ref="'c'+index" :class="`grid-box ${getDinamic()}`" :style="`${bg_color} ${size}`">
         <button class="up-box c-info" @click="goToCode(index)">Ver o codigo</button>
         <component :is="'c'+index" class="grid-area"/>
         <div class="up-box id"> c{{index}} </div>
@@ -15,7 +15,11 @@ export default defineComponent({
         index: {
             type: Number,
             required: true
-        }
+        },
+        dinamic: {
+            type: Boolean,
+            default: true
+        },
     },
     data(){
         return {
@@ -78,6 +82,9 @@ export default defineComponent({
             }else{
                 setTimeout(() => { this.getColor(); }, 100);
             }
+        },
+        getDinamic(){
+            return this.dinamic ? 'dinamic': '';
         }
     },
 })
@@ -88,8 +95,10 @@ export default defineComponent({
         @apply relative overflow-hidden
                 shadow-lg rounded-lg bg-light-600
                 flex items-center justify-center
-                col-span-$col row-span-$row;
-
+                col-span-1 row-span-1;
+        &.dinamic{
+            @apply col-span-$col row-span-$row;
+        }
         &:hover {
           .c-info{
             @apply opacity-100 left-0;
