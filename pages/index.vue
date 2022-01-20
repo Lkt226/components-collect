@@ -23,7 +23,7 @@
 
       <bg-box class="landing-page">
         <h2 class="text-center">Envie um e-mail</h2>
-        <form>
+        <form @submit="(e)=>handleSubmit(e)">
           <form-item v-for="(input, index) in inputs" :key="index"
               :type="input.type" :id="input.id" :title="input.title"/>
 
@@ -66,8 +66,38 @@ export default defineComponent({
             {type: 'text', id: 'name', title: 'Seu nome'},
             {type: 'email', id: 'email', title: 'Seu E-mail'},
             {type: 'textarea', id: 'message', title: 'Digite uma mensagem'},
-          ]
+          ],
+          message: {
+            show: 'desactived',
+            
+          },
         }
+    },
+    methods: {
+      handleSubmit(e){
+        e.preventDefault();
+        console.log('enviou')
+
+        const form = e.target;
+
+        const formdata = new FormData();
+        const header = new Headers();
+
+        formdata.append("_replyto", form.elements.email.value);
+        formdata.append("message", [form.elements.name.value, form.elements.message.value].join('/-/'));
+        
+        header.append("Cookie", "fs_ab1=control");
+         
+        useFetch('https://formspree.io/f/mqkneyzg', {
+          method: 'POST',
+          headers: header,
+          body: formdata
+        }).then(response => {
+          this.$router.push('/sucesso');
+        }).catch(error => {
+          this.$router.push('/error');
+        })
+      }
     }
 })
 </script>
