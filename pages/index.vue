@@ -8,12 +8,8 @@
       </div>
       
       <bg-box id="last-components">
-        <h2>Ultimos componentes <icon name="angle-double-right"/> </h2>
-        <div id="grid">
-          <ClientOnly>
-          <grid-box v-for="(value, index) in size" :key="index" :index="value" :dinamic="false"/>
-          </ClientOnly>
-        </div>
+        <h2>Ultimos componentes <icon name="angle-double-right" @click="goTo('/componentes')"/> </h2>
+        <slide-components :components="size"/>
       </bg-box>
 
       <div class="landing-page">
@@ -97,6 +93,9 @@ export default defineComponent({
         }).catch(error => {
           this.$router.push('/error');
         })
+      },
+      goTo(path){
+        this.$router.push(path);
       }
     }
 })

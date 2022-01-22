@@ -28,8 +28,8 @@ export default defineComponent({
                 link: '/componentes'
             },
             pages: {
-                title: 'Sobre',
-                link: '/sobre'
+                title: 'Pages',
+                link: '/pages'
             },
             about: {
                 title: 'Sobre',

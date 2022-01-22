@@ -2,8 +2,8 @@
     <div :id="'c'+index" :ref="'c'+index" :class="`grid-box ${getDinamic()}`" :style="`${bg_color} ${size}`">
         <button class="up-box c-info" @click="goToCode(index)">Ver o codigo</button>
         <component :is="'c'+index" class="grid-area"/>
-        <div class="up-box id"> c{{index}} </div>
-        {{getColor()}} {{getSize()}}
+        <div class="up-box id"> c{{index}}</div>
+        <div class="script" v-if="scripts">{{getColor()}} {{getSize()}}</div>
     </div>
 </template>
 
@@ -20,6 +20,10 @@ export default defineComponent({
             type: Boolean,
             default: true
         },
+        scripts: {
+            type: Boolean,
+            default: true
+        }
     },
     data(){
         return {
@@ -87,6 +91,18 @@ export default defineComponent({
             return this.dinamic ? 'dinamic': '';
         }
     },
+    mounted(){
+        if(!this.scripts){
+            this.getColor();
+            this.getSize();
+        }
+    },
+    updated(){
+        if(!this.scripts){
+            this.getColor();
+            this.getSize();
+        }
+    }
 })
 </script>
 
